@@ -45,6 +45,7 @@
                             <artifactId>eContactEjb</artifactId>
                         </ejbModule>
                     </modules>
+                    <defaultLibBundleDir>lib</defaultLibBundleDir>
                 </configuration>
             </plugin>
         </plugins>
