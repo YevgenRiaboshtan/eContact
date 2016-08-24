@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="${labels.loginForm.page.title}"?>
+<!--<?link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon"?>-->
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    <window title="${labels.loginForm.window.title}" width="400px"
+            closable="false" position="center" border="normal" mode="overlapped">
+        <n:form method="post" id="j_security_check" action="j_security_check">
+            <div if="${paramValues.login_error != null}" width="100%" style="color:red; padding:5px;">
+                ${labels.loginForm.err.message}
+            </div>
+            <grid>
+                <rows>
+                    <row>${labels.loginForm.j_username.label} :
+                        <textbox id="j_username" name="j_username" value="${sessionScope.j_username}" width="200px"
+                                 focus="true"/>
+                    </row>
+                    <row>${labels.loginForm.j_password.label} :
+                        <textbox id="j_password" name="j_password" type="password" width="200px"/>
+                    </row>
+                    <row>
+                        <cell align="right" colspan="2">
+                            <button type="submit" label="${labels.loginForm.loginBtn.label}" style="width:100px"/>
+                        </cell>
+                    </row>
+                </rows>
+            </grid>
+        </n:form>
+    </window>
+</zk>
