@@ -12,15 +12,21 @@
     <artifactId>eContactWeb</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <spring.version>4.1.2.RELEASE</spring.version>
+    </properties>
+
+
+
     <dependencies>
-      <!--  <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>eContactDataModel</artifactId>
-            <version>${project.version}</version>
-        </dependency>-->
         <dependency>
             <groupId>org.springframework.security</groupId>
             <artifactId>spring-security-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
             <version>${spring.version}</version>
         </dependency>
     </dependencies>

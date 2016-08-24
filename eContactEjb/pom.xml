@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>eContactDataModel</artifactId>
+            <artifactId>eContactData</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

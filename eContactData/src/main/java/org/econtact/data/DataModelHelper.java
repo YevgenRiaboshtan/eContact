@@ -1,14 +1,14 @@
-package org.econtact.model.entity.util;
+package org.econtact.data;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-public final class EntityHelper {
+public final class DataModelHelper {
 
     public static final String ECONTACT_SCHEMA = "dev";
 
-    private static AtomicLong uidGenerator = new AtomicLong();
+    private static final AtomicLong uidGenerator = new AtomicLong();
 
-    private EntityHelper() {
+    private DataModelHelper() {
     }
 
     public static Long getUid() {

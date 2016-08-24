@@ -1,6 +1,7 @@
-package org.econtact.model.entity;
+package org.econtact.data.model.entity;
 
-import org.econtact.model.entity.util.EntityHelper;
+import org.econtact.data.DataModelHelper;
+import org.econtact.data.model.AbstractView;
 import org.hibernate.proxy.HibernateProxyHelper;
 
 import javax.persistence.Column;
@@ -16,12 +17,12 @@ public abstract class AbstractEntity<PK extends Serializable> implements Abstrac
     private Long uid;
 
     @Version
-    @Column(name = "version", precision = 10, scale = 0, nullable = false)
+    @Column(name = "version", precision = 10, nullable = false)
     private Long version;
 
     private Long getUid() {
         if (uid == null) {
-            uid = EntityHelper.getUid();
+            uid = DataModelHelper.getUid();
         }
         return uid;
     }

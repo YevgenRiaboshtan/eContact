@@ -1,4 +1,4 @@
-package org.econtact.model.entity;
+package org.econtact.data.model;
 
 import java.io.Serializable;
 

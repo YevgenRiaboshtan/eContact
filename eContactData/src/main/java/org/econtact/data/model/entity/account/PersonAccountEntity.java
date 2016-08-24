@@ -1,7 +1,7 @@
-package org.econtact.model.entity.account;
+package org.econtact.data.model.entity.account;
 
-import org.econtact.model.entity.AbstractEntity;
-import org.econtact.model.entity.util.EntityHelper;
+import org.econtact.data.model.entity.AbstractEntity;
+import org.econtact.data.DataModelHelper;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.SQLDelete;
@@ -13,19 +13,19 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 @Entity
-@Table(name = "PERSON_ACCOUNT", schema = EntityHelper.ECONTACT_SCHEMA)
+@Table(name = "PERSON_ACCOUNT", schema = DataModelHelper.ECONTACT_SCHEMA)
 @SQLDelete(sql = "UPDATE PERSON_ACCOUNT SET SIGN = ID+PERSON_ACCOUNT WHERE ID_PERSON_ACCOUNT = ? AND VERSION = ?")
 @Cache(usage = CacheConcurrencyStrategy.NONE)
 @Audited
-@AuditTable(value = "PERSON_ACCOUNT_AUDIT", schema = EntityHelper.ECONTACT_SCHEMA)
+@AuditTable(value = "PERSON_ACCOUNT_AUDIT", schema = DataModelHelper.ECONTACT_SCHEMA)
 public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
 
     private static final String SEQ_NAME = "personAccountSeq";
 
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "PERSON_ACCOUNT_SEQ", schema = EntityHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
-    @Column(name = "ID_PERSON_ACCOUNT", unique = true, nullable = false, precision = 38, scale = 0)
+    @Column(name = "ID_PERSON_ACCOUNT", unique = true, nullable = false, precision = 38)
     private BigDecimal id;
 
     @OneToOne
@@ -38,13 +38,13 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
     @Column(name = "PASSWORD", nullable = false, length = 60)
     private String password;
 
-    @Column(name = "ACCOUNT_NON_EXPIRED", nullable = false, precision = 1, scale = 0)
+    @Column(name = "ACCOUNT_NON_EXPIRED", nullable = false, precision = 1)
     private Boolean accountNonExpired;
 
-    @Column(name = "ACCOUNT_NON_LOCKED", nullable = false, precision = 1, scale = 0)
+    @Column(name = "ACCOUNT_NON_LOCKED", nullable = false, precision = 1)
     private Boolean accountNonLocked;
 
-    @Column(name = "ENABLED", nullable = false, precision = 1, scale = 0)
+    @Column(name = "ENABLED", nullable = false, precision = 1)
     private Boolean enabled;
 
     @Column(name = "UPDATE_AUTHOR", nullable = false, length = 100)
@@ -53,7 +53,7 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
     @Column(name = "UPDATE_DATE", nullable = false)
     private Date updateDate;
 
-    @Column(name = "SIGN", nullable = false, precision = 38, scale = 0)
+    @Column(name = "SIGN", nullable = false, precision = 38)
     private BigDecimal sign;
 
     @Override

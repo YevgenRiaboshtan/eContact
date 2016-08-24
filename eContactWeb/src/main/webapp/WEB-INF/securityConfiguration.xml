@@ -7,6 +7,19 @@
 			http://www.springframework.org/schema/security
 			http://www.springframework.org/schema/security/spring-security-4.1.xsd">
     <security:http create-session="always" use-expressions="true">
+        <security:intercept-url pattern="index.xhtml" access="denyAll()"/>
+        <security:intercept-url pattern="blabla.html" access="hasRole(S)"/>
         <security:anonymous enabled="false"/>
     </security:http>
+
+    <security:authentication-manager>
+        <security:authentication-provider>
+            <security:password-encoder ref="passwordEncoder"/>
+            <security:user-service>
+                <security:user name="admin" authorities="ROLE_ADMIN" password="admin"/>
+            </security:user-service>
+        </security:authentication-provider>
+    </security:authentication-manager>
+
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
 </beans>
