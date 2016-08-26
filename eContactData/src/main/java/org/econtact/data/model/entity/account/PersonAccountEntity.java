@@ -1,7 +1,7 @@
 package org.econtact.data.model.entity.account;
 
-import org.econtact.data.model.entity.AbstractEntity;
 import org.econtact.data.DataModelHelper;
+import org.econtact.data.model.entity.AbstractEntity;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.hibernate.annotations.SQLDelete;
@@ -12,14 +12,20 @@ import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import static org.econtact.data.model.entity.account.PersonAccountEntity.BY_LOGIN_QUERY;
+
 @Entity
 @Table(name = "PERSON_ACCOUNT", schema = DataModelHelper.ECONTACT_SCHEMA)
 @SQLDelete(sql = "UPDATE PERSON_ACCOUNT SET SIGN = ID+PERSON_ACCOUNT WHERE ID_PERSON_ACCOUNT = ? AND VERSION = ?")
 @Cache(usage = CacheConcurrencyStrategy.NONE)
 @Audited
 @AuditTable(value = "PERSON_ACCOUNT_AUDIT", schema = DataModelHelper.ECONTACT_SCHEMA)
+@NamedQueries(
+        @NamedQuery(name = BY_LOGIN_QUERY, query = "SELECT account FROM PersonAccountEntity account WHERE account.login=:login"))
 public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
 
+    public static final String BY_LOGIN_QUERY = "PersonAccountEntity.byLogin";
+    public static final String LOGIN_A = "login";
     private static final String SEQ_NAME = "personAccountSeq";
 
     @SequenceGenerator(name = SEQ_NAME, sequenceName = "PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
@@ -135,5 +141,10 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
 
     public void setSign(BigDecimal sign) {
         this.sign = sign;
+    }
+
+    public void prePersist() {
+        sign = DataModelHelper.ACTUAL_SIGN;
+        updateDate = new Date();
     }
 }

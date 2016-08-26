@@ -2,4 +2,5 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
 asdasdasd
+    <toolbarbutton href="/logout" label="Logout" />
 </zk>

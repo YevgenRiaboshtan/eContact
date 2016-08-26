@@ -4,4 +4,8 @@
         <name>org.zkoss.web.preferred.locale</name>
         <value>en</value>
     </library-property>
+
+    <listener>
+        <listener-class>org.econtact.web.listener.SessionCleanupListener</listener-class>
+    </listener>
 </zk>

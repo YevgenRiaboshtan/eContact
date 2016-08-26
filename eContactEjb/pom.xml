@@ -27,6 +27,11 @@
                 <version>2.3</version>
                 <configuration>
                     <ejbVersion>3.1</ejbVersion>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>org.infinispan,org.hibernate</Dependencies>
+                        </manifestEntries>
+                    </archive>
                 </configuration>
             </plugin>
         </plugins>

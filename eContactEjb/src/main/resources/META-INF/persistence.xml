@@ -9,9 +9,9 @@
         <jta-data-source>java:jboss/datasources/econtactDS</jta-data-source>
         <class>org.econtact.data.model.entity.account.PersonAccountEntity</class>
         <class>org.econtact.data.model.entity.account.PersonEntity</class>
-        
+        <class>org.econtact.data.model.entity.audit.VisitLogEntity</class>
         <properties>
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL94Dialect"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update" />
         </properties>
     </persistence-unit>
