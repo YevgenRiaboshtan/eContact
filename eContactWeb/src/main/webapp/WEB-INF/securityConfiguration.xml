@@ -27,13 +27,7 @@
     </bean>
 
     <security:authentication-manager>
-        <security:authentication-provider>
-            <security:password-encoder ref="passwordEncoder"/>
-            <security:user-service>
-                <security:user name="admin" authorities="ROLE_ADMIN" password="$2a$06$AgMKKVvDavuDjmi7Je87CO8qyihNnp2qlzdKY.cStbyOX5Z3eEo2C" disabled="true"/>
-            </security:user-service>
-        </security:authentication-provider>
-        <security:authentication-provider user-service-ref="dbUserDetailsService">
+       <security:authentication-provider user-service-ref="dbUserDetailsService">
             <security:password-encoder ref="passwordEncoder"/>
         </security:authentication-provider>
     </security:authentication-manager>

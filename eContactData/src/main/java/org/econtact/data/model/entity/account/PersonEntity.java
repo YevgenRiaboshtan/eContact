@@ -28,6 +28,10 @@ public class PersonEntity extends AbstractEntity<BigDecimal> {
     @Column(name = "LAST_NAME", length = 50, nullable = false)
     private String lastName;
 
+    @Column(name = "ROLE_TYPE")
+    @Enumerated(EnumType.STRING)
+    private PersonRole role;
+
     @Override
     public BigDecimal getId() {
         return id;
@@ -51,5 +55,13 @@ public class PersonEntity extends AbstractEntity<BigDecimal> {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public PersonRole getRole() {
+        return role;
+    }
+
+    public void setRole(PersonRole role) {
+        this.role = role;
     }
 }

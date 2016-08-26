@@ -25,14 +25,10 @@ public class UserDetailsServiceImpl implements UserDetailsService {
                     personAccount.getAccountNonLocked());
             result.setPerson(personAccount.getPerson());
             return result;
-        } else {
-            final String message;
-            if (personAccounts.isEmpty()) {
-                message = "User with username " + username + " not found";
-            } else {
-                message = "Ambiguous user with username " + username;
-            }
-            throw new UsernameNotFoundException(message);
         }
+        if (!personAccounts.isEmpty()) {
+            throw new UsernameNotFoundException("Ambiguous user with username " + username);
+        }
+        return null;
     }
 }
