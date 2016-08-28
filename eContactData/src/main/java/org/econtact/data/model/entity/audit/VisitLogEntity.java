@@ -21,7 +21,7 @@ public class VisitLogEntity implements AbstractView<BigDecimal> {
     public static final String END_VISIT_A = "endVisit";
 
     private static final String SEQ_NAME = "visitLogSeq";
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "VISIT_LOG_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$VISIT_LOG_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
     @Id
     @Column(name = "ID_VISIT_LOG", precision = 38, nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)

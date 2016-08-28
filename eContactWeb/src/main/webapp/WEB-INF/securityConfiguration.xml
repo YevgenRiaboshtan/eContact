@@ -33,5 +33,12 @@
     </security:authentication-manager>
 
     <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
-    <bean id="dbUserDetailsService" class="org.econtact.web.security.UserDetailsServiceImpl"/>
+    <bean id="dbUserDetailsService" class="org.econtact.web.security.UserDetailsServiceImpl">
+        <property name="authService" ref="authenticationEjbBean"/>
+    </bean>
+
+    <bean id="authenticationEjbBean" class="org.springframework.ejb.access.LocalStatelessSessionProxyFactoryBean">
+        <property name="jndiName" value="java:app/eContactEjb-1.0-SNAPSHOT/AuthenticationServiceImpl!org.econtact.data.service.AuthenticationService"/>
+        <property name="businessInterface" value="org.econtact.data.service.AuthenticationService"/>
+    </bean>
 </beans>

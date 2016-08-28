@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.econtact.data.model.entity.account.PersonAccountEntity.BY_LOGIN_QUERY;
+import static org.econtact.data.model.entity.account.PersonAccountEntity.LOGIN_A;
 
 @Entity
 @Table(name = "PERSON_ACCOUNT", schema = DataModelHelper.ECONTACT_SCHEMA)
@@ -28,7 +29,7 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
     public static final String LOGIN_A = "login";
     private static final String SEQ_NAME = "personAccountSeq";
 
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
     @Column(name = "ID_PERSON_ACCOUNT", unique = true, nullable = false, precision = 38)

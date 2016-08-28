@@ -5,7 +5,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public final class DataModelHelper {
 
-    public static final String ECONTACT_SCHEMA = "dev";
+    public static final String ECONTACT_SCHEMA = "";
     public static final BigDecimal ACTUAL_SIGN = BigDecimal.ZERO;
 
     private static final AtomicLong uidGenerator = new AtomicLong();

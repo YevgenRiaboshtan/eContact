@@ -19,7 +19,7 @@ import java.util.List;
 @Stateless
 @Local(AuthenticationService.class)
 @TransactionAttribute(TransactionAttributeType.REQUIRED)
-public class AuthenticationServiceImpl implements AuthenticationService{
+public class AuthenticationServiceImpl implements AuthenticationService {
 
     @PersistenceContext(unitName = EjbHelper.UNIT_NAME)
     private EntityManager em;

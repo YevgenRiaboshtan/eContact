@@ -16,7 +16,7 @@ public class PersonEntity extends AbstractEntity<BigDecimal> {
 
     private static final String SEQ_NAME = "personSeq";
 
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "PERSON_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
     @Id
     @Column(name = "ID_PERSON", precision = 38, nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
