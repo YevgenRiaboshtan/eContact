@@ -5,6 +5,12 @@
         <value>en</value>
     </library-property>
 
+    <library-property>
+        <name>org.zkoss.theme.preferred</name>
+        <value>sapphire</value>
+        <!-- or silvertail, atlantic, sapphire -->
+    </library-property>
+
     <listener>
         <listener-class>org.econtact.web.listener.SessionCleanupListener</listener-class>
     </listener>

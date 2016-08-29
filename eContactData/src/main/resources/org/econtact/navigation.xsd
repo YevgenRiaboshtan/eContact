@@ -1,40 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema attributeFormDefault="unqualified"
-           elementFormDefault="qualified" targetNamespace="https://com.econtact/navigation"
+           elementFormDefault="qualified" targetNamespace="https://org.econtact/navigation"
+           xmlns:nav="https://org.econtact/navigation"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
     <xs:element name="navigation">
         <xs:complexType>
             <xs:sequence minOccurs="1" maxOccurs="unbounded">
-                <xs:element name="root" type="rootType"/>
+                <xs:element name="root" type="nav:rootType"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
     <xs:complexType name="rootType">
         <xs:sequence minOccurs="1" maxOccurs="unbounded">
-            <xs:element name="action" type="actionType"/>
+            <xs:element name="action" type="nav:actionType"/>
         </xs:sequence>
         <xs:attribute name="name" type="xs:string" use="required"/>
-        <xs:attribute name="rendered" type="booleanType" use="optional" default="true"/>
+        <xs:attribute name="rendered" type="nav:booleanType" use="optional" default="true"/>
     </xs:complexType>
 
     <xs:complexType name="actionType">
         <xs:sequence minOccurs="0" maxOccurs="1">
-            <xs:element name="parameters" type="parametersType" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="action" type="actionType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="parameters" type="nav:parametersType" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="action" type="nav:actionType" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
-        <xs:attribute name="category" type="actionCategoryType" use="optional" default="undefined"/>
+        <xs:attribute name="category" type="nav:actionCategoryType" use="optional" default="undefined"/>
         <xs:attribute name="label" type="xs:string" use="required"/>
         <xs:attribute name="tooltip" type="xs:string" use="optional"/>
         <xs:attribute name="image" type="xs:string" use="optional"/>
-        <xs:attribute name="rendered" type="booleanType" use="optional" default="true"/>
+        <xs:attribute name="rendered" type="nav:booleanType" use="optional" default="true"/>
         <xs:attribute name="outcome" type="xs:string" use="optional"/>
     </xs:complexType>
 
     <xs:complexType name="parametersType">
         <xs:sequence minOccurs="1" maxOccurs="unbounded">
-            <xs:element name="parameter" type="parameterType"/>
+            <xs:element name="parameter" type="nav:parameterType"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -60,6 +61,7 @@
     <xs:simpleType name="actionCategoryType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="navigate"/>
+            <xs:enumeration value="undefined"/>
         </xs:restriction>
     </xs:simpleType>
 </xs:schema>

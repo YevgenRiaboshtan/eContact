@@ -1,5 +1,11 @@
 package org.econtact.web.util;
 
+import org.zkoss.xel.ExpressionFactory;
+import org.zkoss.xel.Expressions;
+import org.zkoss.xel.util.SimpleXelContext;
+import org.zkoss.zk.ui.Executions;
+import org.zkoss.zk.xel.impl.ExecutionResolver;
+
 import javax.enterprise.context.spi.CreationalContext;
 import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
@@ -21,5 +27,16 @@ public final class WebHelper {
         CreationalContext cCtx = beanManager.createCreationalContext(bean);
         T result = (T) beanManager.getReference(bean, beanClass, cCtx);
         return result;
+    }
+
+    public static <T> T resolveExecutionExpression(final String expression, final Class<T> resultClass) {
+        if (expression == null) {
+            return null;
+        } else {
+            final ExpressionFactory expressionFactory = Expressions.newExpressionFactory();
+            final SimpleXelContext xelContext = new SimpleXelContext(new ExecutionResolver(Executions.getCurrent(), null));
+            final T result = (T) expressionFactory.evaluate(xelContext, expression, resultClass);
+            return result;
+        }
     }
 }

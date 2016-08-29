@@ -12,15 +12,15 @@ import java.math.BigDecimal;
 @Table(name = "PERSON", schema = DataModelHelper.ECONTACT_SCHEMA)
 @Audited
 @AuditTable(value = "PERSON_AUDIT", schema = DataModelHelper.ECONTACT_SCHEMA)
-public class PersonEntity extends AbstractEntity<BigDecimal> {
+public class PersonEntity extends AbstractEntity<Long> {
 
     private static final String SEQ_NAME = "personSeq";
 
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
     @Id
-    @Column(name = "ID_PERSON", precision = 38, nullable = false, unique = true)
+    @Column(name = "ID_PERSON", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
-    private BigDecimal id;
+    private Long id;
 
     @Column(name = "FIRST_NAME", length = 50, nullable = false)
     private String firstName;
@@ -33,11 +33,11 @@ public class PersonEntity extends AbstractEntity<BigDecimal> {
     private PersonRole role;
 
     @Override
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

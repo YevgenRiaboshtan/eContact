@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?page title="fixme"?>
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:n="native"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul http://www.zkoss.org/2005/zul/zul.xsd">
+    <n:h2>page in development</n:h2>
+</zk>

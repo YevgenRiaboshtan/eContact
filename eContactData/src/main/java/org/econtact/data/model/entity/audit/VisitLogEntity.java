@@ -14,18 +14,18 @@ import java.util.Date;
 @NamedQueries(
         @NamedQuery(name = VisitLogEntity.DISCONNECT_PERSON_QUERY,
                 query = "UPDATE VisitLogEntity vl SET vl.endVisit=:endVisit WHERE vl.sessionId=:sessionId"))
-public class VisitLogEntity implements AbstractView<BigDecimal> {
+public class VisitLogEntity implements AbstractView<Long> {
 
     public static final String DISCONNECT_PERSON_QUERY = "VisitLogEntity.disconnectPerson";
     public static final String SESSION_ID_A = "sessionId";
     public static final String END_VISIT_A = "endVisit";
 
     private static final String SEQ_NAME = "visitLogSeq";
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$VISIT_LOG_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$VISIT_LOG_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
     @Id
-    @Column(name = "ID_VISIT_LOG", precision = 38, nullable = false, unique = true)
+    @Column(name = "ID_VISIT_LOG", nullable = false, unique = true)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
-    private BigDecimal id;
+    private Long id;
 
     @Column(name = "SESSION_ID", length = 100, nullable = false)
     private String sessionId;
@@ -58,11 +58,11 @@ public class VisitLogEntity implements AbstractView<BigDecimal> {
     }
 
     @Override
-    public BigDecimal getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(BigDecimal id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigation xmlns="https://org.econtact/navigation">
+    <root name="COMMON" >
+        <action label="${labels.navigation.main.label}"/>
+    </root>
+</navigation>

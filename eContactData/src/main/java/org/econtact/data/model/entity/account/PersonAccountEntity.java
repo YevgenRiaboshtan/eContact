@@ -13,7 +13,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import static org.econtact.data.model.entity.account.PersonAccountEntity.BY_LOGIN_QUERY;
-import static org.econtact.data.model.entity.account.PersonAccountEntity.LOGIN_A;
 
 @Entity
 @Table(name = "PERSON_ACCOUNT", schema = DataModelHelper.ECONTACT_SCHEMA)
@@ -29,10 +28,10 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
     public static final String LOGIN_A = "login";
     private static final String SEQ_NAME = "personAccountSeq";
 
-    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA)
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
-    @Column(name = "ID_PERSON_ACCOUNT", unique = true, nullable = false, precision = 38)
+    @Column(name = "ID_PERSON_ACCOUNT", unique = true, nullable = false)
     private BigDecimal id;
 
     @OneToOne
@@ -60,8 +59,8 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
     @Column(name = "UPDATE_DATE", nullable = false)
     private Date updateDate;
 
-    @Column(name = "SIGN", nullable = false, precision = 38)
-    private BigDecimal sign;
+    @Column(name = "SIGN", nullable = false)
+    private Long sign;
 
     @Override
     public BigDecimal getId() {
@@ -136,11 +135,11 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
         this.updateDate = updateDate;
     }
 
-    public BigDecimal getSign() {
+    public Long getSign() {
         return sign;
     }
 
-    public void setSign(BigDecimal sign) {
+    public void setSign(Long sign) {
         this.sign = sign;
     }
 

@@ -15,7 +15,7 @@ public class AuditRevChangedEntity implements AbstractView<Long> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = SEQ_NAME)
-    @Column(name = "ID", nullable = false, precision = 38, scale = 0)
+    @Column(name = "ID", nullable = false)
     private Long id;
 
     @ManyToOne
