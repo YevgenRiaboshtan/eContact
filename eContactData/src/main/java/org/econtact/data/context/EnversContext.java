@@ -3,6 +3,7 @@ package org.econtact.data.context;
 import java.io.Serializable;
 
 public class EnversContext implements Serializable {
+    private static final long serialVersionUID = -7721180592331014931L;
     private String note;
     private String nameEv;
 

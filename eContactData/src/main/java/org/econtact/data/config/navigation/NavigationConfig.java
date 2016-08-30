@@ -12,6 +12,7 @@ import java.util.List;
 @XmlRootElement(name = "navigation", namespace = ConfigHelper.NAVIGATION_NAMESPACE)
 @XmlAccessorType(XmlAccessType.FIELD)
 public class NavigationConfig implements Serializable {
+    private static final long serialVersionUID = 7016427043577698163L;
     @XmlElement(name = "root")
     private List<RootConfig> roots;
 

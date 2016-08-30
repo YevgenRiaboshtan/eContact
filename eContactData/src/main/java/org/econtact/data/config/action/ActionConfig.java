@@ -16,6 +16,7 @@ import java.util.Map;
 public class ActionConfig implements Serializable {
 
     public static final String NAME = "action";
+    private static final long serialVersionUID = -9015240531249243748L;
 
     @XmlAttribute(name = "category", required = false)
     private String category;

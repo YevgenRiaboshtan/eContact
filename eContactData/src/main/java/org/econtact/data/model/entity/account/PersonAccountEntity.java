@@ -27,6 +27,7 @@ public class PersonAccountEntity extends AbstractEntity<BigDecimal> {
     public static final String BY_LOGIN_QUERY = "PersonAccountEntity.byLogin";
     public static final String LOGIN_A = "login";
     private static final String SEQ_NAME = "personAccountSeq";
+    private static final long serialVersionUID = 195791076718023908L;
 
     @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_ACCOUNT_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
     @Id

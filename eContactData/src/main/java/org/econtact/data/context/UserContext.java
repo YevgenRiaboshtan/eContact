@@ -7,6 +7,7 @@ import java.util.TimeZone;
 
 public class UserContext implements Serializable {
 
+    private static final long serialVersionUID = 1900023554603860042L;
     private PersonEntity person;
     private TimeZone userTimeZone;
 

@@ -15,6 +15,7 @@ import java.math.BigDecimal;
 public class PersonEntity extends AbstractEntity<Long> {
 
     private static final String SEQ_NAME = "personSeq";
+    private static final long serialVersionUID = -3799729034150189729L;
 
     @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$PERSON_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
     @Id

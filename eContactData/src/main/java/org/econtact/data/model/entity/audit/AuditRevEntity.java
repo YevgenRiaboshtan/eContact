@@ -19,6 +19,7 @@ import java.util.List;
 @Cacheable(value = false)
 public class AuditRevEntity implements AbstractView<Long> {
     private static final String SEQ_NAME = "auditRevSeq";
+    private static final long serialVersionUID = -3412861546012022548L;
     @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$AUDIT_REV", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
 
     @Id

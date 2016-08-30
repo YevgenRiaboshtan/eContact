@@ -21,6 +21,7 @@ public class VisitLogEntity implements AbstractView<Long> {
     public static final String END_VISIT_A = "endVisit";
 
     private static final String SEQ_NAME = "visitLogSeq";
+    private static final long serialVersionUID = 317604880430905901L;
     @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$VISIT_LOG_SEQ", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
     @Id
     @Column(name = "ID_VISIT_LOG", nullable = false, unique = true)

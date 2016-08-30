@@ -11,6 +11,7 @@ public class AuditRevChangedEntity implements AbstractView<Long> {
 
     public static final String AUDIT_REV_A = "auditRev";
     private static final String SEQ_NAME = "auditRevChangedSeq";
+    private static final long serialVersionUID = -1833426517125770314L;
     @SequenceGenerator(name = SEQ_NAME, sequenceName = "S$AUDIT_REV_CHANGED", schema = DataModelHelper.ECONTACT_SCHEMA, allocationSize = 1)
 
     @Id

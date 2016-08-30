@@ -13,6 +13,7 @@ import java.io.Serializable;
 @MappedSuperclass
 public abstract class AbstractEntity<PK extends Serializable> implements AbstractView<PK> {
 
+    private static final long serialVersionUID = 1840274098479140724L;
     @Transient
     private Long uid;
 

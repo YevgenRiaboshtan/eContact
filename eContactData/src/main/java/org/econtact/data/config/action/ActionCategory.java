@@ -1,13 +1,8 @@
 package org.econtact.data.config.action;
 
 public enum ActionCategory {
-    REFRESH(null),
-    CREATE("@#ins"), EDIT("@#enter"), DELETE("@#del"),
-    SAVE("@s"),
-    WORKFLOW(null),
     NAVIGATE(null),
-    UNDEFINED(null),
-    CLOSE("#escape");
+    UNDEFINED(null);
 
     private String ctrlKeys;
 

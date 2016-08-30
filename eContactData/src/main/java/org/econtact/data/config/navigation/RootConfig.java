@@ -11,6 +11,7 @@ import java.util.List;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class RootConfig implements Serializable {
 
+    private static final long serialVersionUID = 7189447670767294084L;
     @XmlAttribute(name = "name", required = true)
     private String name;
 
