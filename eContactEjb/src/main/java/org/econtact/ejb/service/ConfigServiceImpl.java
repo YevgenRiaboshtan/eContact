@@ -19,29 +19,34 @@ import java.util.List;
 
 @Stateless
 @Local(ConfigService.class)
-public class ConfigServiceImpl implements ConfigService{
+public class ConfigServiceImpl implements ConfigService {
 
+    private static final String DEFAULT_NAVIGATION_CONFIG = "META-INF/navigation-config.xml";
     private SoftReference<NavigationConfig> navigationConfigReference;
 
     @Override
     public List<RootConfig> getNavigationConfig() {
         NavigationConfig navConfig = navigationConfigReference == null ? null : navigationConfigReference.get();
         if (navConfig == null) {
-            final URL resourceUrl = Thread.currentThread().getContextClassLoader()
-                    .getResource("META-INF/navigation-config.xml");
-            final URL schemaUrl = Thread.currentThread().getContextClassLoader()
-                    .getResource(ConfigHelper.NAVIGATION_SCHEMA_RESOURCE);
-            try {
-                final JAXBContext jaxbContext = JAXBContext.newInstance(new Class[]{NavigationConfig.class});
-                final Schema schema = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI).newSchema(schemaUrl);
-                final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-                unmarshaller.setSchema(schema);
-                navConfig = (NavigationConfig) unmarshaller.unmarshal(resourceUrl);
-                navigationConfigReference = new SoftReference<>(navConfig);
-            } catch (Exception ex) {
-                ex.printStackTrace();
-            }
+            navConfig = unmarshalNavigationConfig(DEFAULT_NAVIGATION_CONFIG);
+            navigationConfigReference = new SoftReference<>(navConfig);
         }
         return navConfig == null ? Collections.EMPTY_LIST : navConfig.getRoots();
+    }
+
+    private NavigationConfig unmarshalNavigationConfig(String resourcePath) {
+        final URL resourceUrl = Thread.currentThread().getContextClassLoader().getResource(resourcePath);
+        final URL schemaUrl = Thread.currentThread().getContextClassLoader().getResource(ConfigHelper.NAVIGATION_SCHEMA_RESOURCE);
+        NavigationConfig result = null;
+        try {
+            final JAXBContext jaxbContext = JAXBContext.newInstance(NavigationConfig.class);
+            final Schema schema = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI).newSchema(schemaUrl);
+            final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
+            unmarshaller.setSchema(schema);
+            result = (NavigationConfig) unmarshaller.unmarshal(resourceUrl);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return result;
     }
 }

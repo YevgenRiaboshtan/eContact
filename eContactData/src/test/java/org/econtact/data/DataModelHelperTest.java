@@ -12,7 +12,7 @@ import java.util.concurrent.*;
 
 import static org.junit.Assert.assertEquals;
 
-public class EntityHelperTest {
+public class DataModelHelperTest {
 
     private Callable<Long> generateUidTask;
 
