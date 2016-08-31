@@ -6,7 +6,7 @@
             <include src="app/layout/header.zul"/>
         </north>
         <west id="navigationPanel" title="${labels.layout.navigation.title}"
-              autoscroll="true" focus="true" splittable="true" flex="true" size="30%">
+              autoscroll="true" focus="true" collapsible="true" splittable="true" size="30%">
             <div hflex="1" vflex="1">
                 <tree id="navigationTree"
                       multiple="false" hflex="1" vflex="1" nonselectableTags=""
