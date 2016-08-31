@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zk xmlns="http://www.zkoss.org/2005/zul"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.zkoss.org/2005/zul
+    http://www.zkoss.org/2005/zul/zul.xsd">
+<panel title="${labels.visitLog.panel.title}"
+        apply="org.econtact.web.composer.audit.VisitLogComposer">
+    <panelchildren>
+        <grid id="grid">
+            <auxhead>
+                <auxheader label="${labels.visitLog.grid.header.label}"/>
+            </auxhead>
+            <columns>
+                <column label="ip"/>
+            </columns>
+            <template name="model" var="each">
+                <row>
+                    <label value="${each.ipAddress}"/>
+                </row>
+            </template>
+        </grid>
+    </panelchildren>
+</panel>
+</zk>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <navigation xmlns="https://org.econtact/navigation">
+
+    <root name="SYSADMIN">
+        <action label="${labels.navigation.visitLog.label}" outcome="/app/audit/visitLog.zul"/>
+    </root>
     <root name="COMMON" >
         <action label="${labels.navigation.main.label}"/>
     </root>
