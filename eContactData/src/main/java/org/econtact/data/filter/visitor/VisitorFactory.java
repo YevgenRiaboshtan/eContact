@@ -30,7 +30,32 @@ public class VisitorFactory {
             case NOT_NULL:
                 return new NotNullVisitor(ctx);
 
+            case LIKE:
+                return new LikeVisitor(ctx);
+            case LIKE_IGNORE_CASE:
+                return new LikeIgnoreCaseVisitor(ctx);
+            case NOT_LIKE:
+                return new NotLikeVisitor(ctx);
+            case NOT_LIKE_IGNORE_CASE:
+                return new NotLikeIgnoreCaseVisitor(ctx);
 
+            case START_WITH:
+                return new StartWithVisitor(ctx);
+            case START_WITH_IGNORE_CASE:
+                return new StartWithIgnoreCaseVisitor(ctx);
+            case END_WITH:
+                return new EndWithVisitor(ctx);
+            case END_WITH_IGNORE_CASE:
+                return new EndWithIgnoreCaseVisitor(ctx);
+
+            case CONTAINS:
+                return new ContainsVisitor(ctx);
+            case CONTAINS_IGNORE_CASE:
+                return new ContainsIgnoreCaseVisitor(ctx);
+            case NOT_CONTAINS:
+                return new NotContainsVisitor(ctx);
+            case NOT_CONTAINS_IGNORE_CASE:
+                return new NotContainsIgnoreCaseVisitor(ctx);
 
             default:
                 throw new UnsupportedOperationException("Filter with type - " + filterType + "not supported.");

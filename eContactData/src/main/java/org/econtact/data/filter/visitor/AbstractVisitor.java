@@ -10,9 +10,6 @@ import javax.persistence.criteria.Predicate;
 
 public abstract class AbstractVisitor<T extends Filter> implements FilterVisitor<T> {
 
-    protected static final char LIKE_ESCAPE_CHAR = '\\';
-    protected static final String LIKE_ANY_CHARS = "%";
-
     protected final VisitorContext visitorContext;
     protected Predicate predicate;
 
