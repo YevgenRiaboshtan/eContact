@@ -43,6 +43,12 @@
                 <version>1.10.19</version>
                 <scope>test</scope>
             </dependency>
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-core</artifactId>
+                <scope>provided</scope>
+                <version>${hibernate.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
