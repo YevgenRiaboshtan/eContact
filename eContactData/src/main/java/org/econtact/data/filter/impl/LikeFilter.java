@@ -4,7 +4,7 @@ import org.econtact.data.filter.FilterType;
 
 public class LikeFilter extends AbstractStringFilter {
 
-    protected LikeFilter(String fieldName, String value) {
+    public LikeFilter(String fieldName, String value) {
         super(fieldName, value);
     }
 

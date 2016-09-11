@@ -1,3 +1,4 @@
+
 package org.econtact.data.model.entity.audit;
 
 import org.econtact.data.DataModelHelper;

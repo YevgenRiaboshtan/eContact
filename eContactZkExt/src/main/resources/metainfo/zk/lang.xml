@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language>
+    <language-name>zk/ext</language-name>
+    <device-type>ajax</device-type>
+    <namespace>https://org.econtact/econtact-zk-ext</namespace>
+    <extension>ext</extension>
+    <renderer-class>org.zkoss.zul.impl.PageRenderer</renderer-class>
+
+    <component>
+        <component-name>browser-head</component-name>
+        <component-class>org.econtact.zk.ext.BrowserHead</component-class>
+        <widget-class>econtact.zk.ext.BrowserHead</widget-class>
+        <mold>
+            <mold-name>default</mold-name>
+            <mold-uri>mold/browser-head.js</mold-uri>
+        </mold>
+    </component>
+    <component>
+        <component-name>browser-header</component-name>
+        <component-class>org.econtact.zk.ext.BrowserHeader</component-class>
+        <widget-class>econtact.zk.ext.BrowserHeader</widget-class>
+        <mold>
+            <mold-name>default</mold-name>
+            <mold-uri>mold/browser-header.js</mold-uri>
+        </mold>
+    </component>
+    <component>
+        <component-name>data-browser</component-name>
+        <component-class>org.econtact.zk.ext.DataBrowser</component-class>
+        <widget-class>econtact.zk.ext.DataBrowser</widget-class>
+        <mold>
+            <mold-name>paging</mold-name>
+            <mold-uri>mold/data-browser.js</mold-uri>
+        </mold>
+    </component>
+</language>

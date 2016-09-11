@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:zul="http://www.zkoss.org/2005/zul"
+           xmlns:c="https://org.econtact/econtact-zk-ext"
+           targetNamespace="https://org.econtact/econtact-zk-ext"
+           elementFormDefault="qualified" attributeFormDefault="unqualified">
+
+    <!-- Data browser -->
+    <xs:element name="data-browser" type="c:dataBrowserType"/>
+    <xs:complexType name="dataBrowserType">
+        <xs:sequence minOccurs="0" maxOccurs="1">
+            <xs:choice minOccurs="0" maxOccurs="unbounded">
+                <xs:group ref="zul:baseGroup" />
+                <xs:element ref="zul:auxhead" />
+                <xs:element ref="zul:listitem" />
+                <xs:element ref="zul:listgroup" />
+                <xs:element ref="zul:listgroupfoot" />
+                <xs:element ref="zul:frozen" />
+            </xs:choice>
+            <xs:choice>
+                <xs:sequence>
+                    <xs:element ref="c:browser-head" />
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:group ref="zul:baseGroup" />
+                        <xs:element ref="zul:auxhead" />
+                        <xs:element ref="zul:listitem" />
+                        <xs:element ref="zul:listgroup" />
+                        <xs:element ref="zul:listgroupfoot" />
+                    </xs:choice>
+                    <xs:sequence minOccurs="0" maxOccurs="1">
+                        <xs:element ref="zul:listfoot" />
+                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                            <xs:group ref="zul:baseGroup" />
+                            <xs:element ref="zul:auxhead" />
+                            <xs:element ref="zul:listitem" />
+                            <xs:element ref="zul:listgroup" />
+                            <xs:element ref="zul:listgroupfoot" />
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:sequence>
+
+                <xs:sequence minOccurs="0" maxOccurs="1">
+                    <xs:element ref="zul:listfoot" />
+                    <xs:choice minOccurs="0" maxOccurs="unbounded">
+                        <xs:group ref="zul:baseGroup" />
+                        <xs:element ref="zul:auxhead" />
+                        <xs:element ref="zul:listitem" />
+                        <xs:element ref="zul:listgroup" />
+                        <xs:element ref="zul:listgroupfoot" />
+                    </xs:choice>
+                    <xs:sequence minOccurs="0" maxOccurs="1">
+                        <xs:element ref="c:browser-head" />
+                        <xs:choice minOccurs="0" maxOccurs="unbounded">
+                            <xs:group ref="zul:baseGroup" />
+                            <xs:element ref="zul:auxhead" />
+                            <xs:element ref="zul:listitem" />
+                            <xs:element ref="zul:listgroup" />
+                            <xs:element ref="zul:listgroupfoot" />
+                        </xs:choice>
+                    </xs:sequence>
+                </xs:sequence>
+            </xs:choice>
+        </xs:sequence>
+        <xs:attributeGroup ref="zul:xulElementAttrGroup" />
+        <xs:attribute name="checkmark" type="zul:booleanType" use="optional" />
+        <xs:attribute name="disabled" type="zul:booleanType" use="optional" />
+        <xs:attribute name="pageSize" type="zul:intType" use="optional" />
+        <xs:attribute name="multiple" type="zul:booleanType" use="optional" />
+        <xs:attribute name="rows" type="zul:intType" use="optional" />
+        <xs:attribute name="maxlength" type="zul:intType" use="optional" />
+        <xs:attribute name="name" type="xs:string" use="optional" />
+        <xs:attribute name="oddRowSclass" type="xs:string" use="optional" />
+        <xs:attribute name="selectedItem" type="xs:string" use="optional" />
+        <xs:attribute name="selectedIndex" type="zul:intType" use="optional" />
+        <xs:attribute name="tabindex" type="zul:intType" use="optional" />
+        <xs:attribute name="model" type="xs:string" use="optional" />
+        <xs:attribute name="itemRenderer" type="xs:string" use="optional" />
+        <xs:attribute name="sizedByContent" type="zul:booleanType" use="optional" />
+        <xs:attribute name="onSelect" type="xs:string" use="optional" />
+        <xs:attributeGroup ref="zul:rootAttrGroup" />
+        <xs:attribute name="innerWidth" type="xs:string" use="optional" />
+        <xs:attribute name="nonselectableTags" type="xs:string" use="optional" />
+        <xs:attribute name="emptyMessage" type="xs:string" use="optional" />
+        <xs:attribute name="span" type="xs:string" use="optional" />
+        <xs:attribute name="showTools" type="xs:boolean" use="optional" default="true"/>
+        <xs:attribute name="showPrintItem" type="xs:boolean" use="optional" default="true"/>
+    </xs:complexType>
+
+    <!-- browser head -->
+    <xs:element name="browser-head" type="c:browserHeadType" />
+    <xs:complexType name="browserHeadType">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
+            <xs:group ref="zul:baseGroup" />
+            <xs:element ref="c:browser-header" />
+        </xs:choice>
+        <xs:attributeGroup ref="zul:xulElementAttrGroup" />
+        <xs:attribute name="columnshide" type="zul:booleanType" use="optional" />
+        <xs:attribute name="columnsgroup" type="zul:booleanType" use="optional" />
+        <xs:attribute name="sizable" type="zul:booleanType" use="optional" />
+        <xs:attribute name="value" type="xs:string" use="optional" />
+    </xs:complexType>
+
+    <!-- browser header -->
+    <xs:element name="browser-header" type="c:browserHeader"/>
+    <xs:complexType name="browserHeader">
+        <xs:group ref="zul:anyGroup" minOccurs="0" maxOccurs="unbounded" />
+        <xs:attributeGroup ref="zul:headerElementAttrGroup" />
+        <xs:attribute name="sort" type="zul:sortAttrType" use="optional" />
+        <xs:attribute name="sortDirection" type="zul:sortDirectionAttrType" use="optional" />
+        <xs:attribute name="sortAscending" type="xs:string" use="optional" />
+        <xs:attribute name="sortDescending" type="xs:string" use="optional" />
+        <xs:attribute name="maxlength" type="zul:intType" use="optional" />
+        <xs:attribute name="onSort" type="xs:string" use="optional" />
+        <xs:attribute name="onGroup" type="xs:string" use="optional" />
+        <xs:attribute name="onUngroup" type="xs:string" use="optional" />
+        <xs:attribute name="value" type="xs:string" use="optional" />
+        <xs:attribute name="fieldName" type="xs:string" use="optional"/>
+        <xs:attribute name="filterType" type="c:filterTypeType" use="optional" default="string"/>
+        <xs:attribute name="filterClass" type="xs:string" use="optional"/>
+    </xs:complexType>
+    <xs:simpleType name="filterTypeType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="none"/>
+            <xs:enumeration value="string"/>
+            <xs:enumeration value="int"/>
+            <xs:enumeration value="long"/>
+            <xs:enumeration value="date"/>
+            <xs:enumeration value="custom"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+</xs:schema>

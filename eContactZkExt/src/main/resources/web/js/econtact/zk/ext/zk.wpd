@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="econtact.zk.ext" language="zk/ext"
+         depends="zul, zul.box, zul.sel, zul.mesh, zul.wgt, zul.inp, zul.wnd" >
+    <widget name="DataBrowser"/>
+    <widget name="BrowserHead"/>
+    <widget name="BrowserHeader"/>
+</package>

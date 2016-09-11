@@ -1,24 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <zk xmlns="http://www.zkoss.org/2005/zul"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ext="https://org.econtact/econtact-zk-ext"
     xsi:schemaLocation="http://www.zkoss.org/2005/zul
-    http://www.zkoss.org/2005/zul/zul.xsd">
+    http://www.zkoss.org/2005/zul/zul.xsd
+    https://org.econtact/econtact-zk-ext
+    https://org.econtact/econtact-zk-ext/econtact-zk-ext.xsd">
 <panel title="${labels.visitLog.panel.title}"
         apply="org.econtact.web.composer.audit.VisitLogComposer">
     <panelchildren>
-        <grid id="grid">
-            <auxhead>
-                <auxheader label="${labels.visitLog.grid.header.label}"/>
-            </auxhead>
-            <columns>
-                <column label="ip"/>
-            </columns>
-            <template name="model" var="each">
-                <row>
-                    <label value="${each.ipAddress}"/>
-                </row>
-            </template>
-        </grid>
+       <ext:data-browser id="browser" hflex="1" vflex="1">
+           <ext:browser-head sizable="true">
+               <ext:browser-header label="sessionId" sort="auto(sessionId)" fieldName="sesionId" filterType="string"/>
+               <ext:browser-header label="startVisit" fieldName="startVisit" filterType="none"/>
+               <ext:browser-header label="endVisit" fieldName="endVisit" filterType="none"/>
+           </ext:browser-head>
+           <template name="model">
+               <listitem>
+                   <listcell/>
+                   <listcell label="${each.sessionId}"/>
+                   <listcell label="${each.startVisit}"/>
+                   <listcell label="${each.endVisit}"/>
+               </listitem>
+           </template>
+       </ext:data-browser>
     </panelchildren>
 </panel>
 </zk>

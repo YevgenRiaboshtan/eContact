@@ -1,12 +1,12 @@
 package org.econtact.web.composer.audit;
 
 import org.econtact.data.model.entity.audit.VisitLogEntity;
+import org.econtact.web.model.AbstractQueriesListModel;
+import org.econtact.zk.ext.DataBrowser;
 import org.zkoss.zk.ui.select.SelectorComposer;
 import org.zkoss.zk.ui.select.annotation.Wire;
-import org.zkoss.zul.Grid;
-import org.zkoss.zul.ListModel;
-import org.zkoss.zul.ListModelList;
 import org.zkoss.zul.Panel;
+import org.zkoss.zul.theme.Themes;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,7 +16,7 @@ public class VisitLogComposer extends SelectorComposer<Panel> {
     private static final long serialVersionUID = -1784581791463910115L;
 
     @Wire
-    private Grid grid;
+    private DataBrowser browser;
 
     @Override
     public void doAfterCompose(Panel comp) throws Exception {
@@ -31,7 +31,7 @@ public class VisitLogComposer extends SelectorComposer<Panel> {
         log.setEndVisit(new Date());
         log.setIpAddress("sddd");
         logs.add(log);
-        ListModelList<VisitLogEntity> model = new ListModelList<>(logs);
-        grid.setModel(model);
+        AbstractQueriesListModel<VisitLogEntity> model = new AbstractQueriesListModel<VisitLogEntity>(logs);
+        browser.setModel(model);
     }
 }
